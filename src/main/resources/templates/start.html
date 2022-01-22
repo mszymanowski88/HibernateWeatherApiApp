@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <style>
+        #weatherResult {
+            font-family: Arial, Helvetica, sans-serif;
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        #weatherResult td, #customers th {
+            border: 1px solid #ddd;
+            padding: 8px;
+        }
+
+        #weatherResult tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        #weatherResult tr:hover {
+            background-color: #ddd;
+        }
+
+        #weatherResult th {
+            padding-top: 12px;
+            padding-bottom: 12px;
+            text-align: left;
+            background-color: #04AA6D;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+
+
+<p style="background-color:#F0E68C;">===============Welcom in Weather Temeperature Record
+    App=========================== </p>
+<p style="background-color:#F0E68C;">Input city to record temperature: </p>
+<form method="post" th:action="@{/add}">
+    <input th:name="input" type="text"/>
+
+    <button type="submit">Search</button>
+</form>
+
+
+<p style="background-color:#F0E68C;">===============List of Temeprature============================ </p>
+<button onClick="window.location.reload();">Click Here to see records</button>
+<br>
+<table id="weatherResult">
+    <tr>
+        <th>Id:</th>
+        <th>Temperature:</th>
+        <th>City:</th>
+        <th>Date:</th>
+        <th>Time:</th>
+
+
+    </tr>
+
+    <tr th:each="weather: ${result}">
+        <td th:text="${weather.getId()}"/>
+        </td>
+
+        <td th:text="${weather.getTemperature()}"/>
+        </td>
+        <td th:text="${weather.getCity()}"/>
+        </td>
+        <td th:text="${weather.getLocalDate()}"/>
+        </td>
+        <td th:text="${weather.getLocalTime()}"/>
+        </td>
+
+
+    </tr>
+
+    <br>
+</table>
+
+
+</body>
+</html>
