@@ -37,17 +37,20 @@
 <body>
 
 
-<p style="background-color:#F0E68C;">===============Welcom in Weather Temeperature Record
+<p style="background-color:#F0E68C;">===============Welcome in Weather Temeperature Record
     App=========================== </p>
 <p style="background-color:#F0E68C;">Input city to record temperature: </p>
-<form method="post" th:action="@{/add}">
-    <input th:name="input" type="text"/>
+
+
+<form method="post" th:action="@{/add}" th:object="${temperature}">
+    <input th:field="*{city}" th:name="input" type="text"/>
 
     <button type="submit">Search</button>
 </form>
 
 
 <p style="background-color:#F0E68C;">===============List of Temeprature============================ </p>
+
 <button onClick="window.location.reload();">Click Here to see records</button>
 <br>
 <table id="weatherResult">

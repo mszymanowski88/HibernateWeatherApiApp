@@ -1,4 +1,4 @@
-package com.example.hibernateweatherapiapp.service;
+package com.example.hibernateweatherapiapp.model;
 
 import javax.persistence.*;
 import java.time.LocalDate;
